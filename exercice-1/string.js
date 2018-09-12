@@ -73,25 +73,25 @@ function vig(val, cle){
 	while(tab.length > cleExt.length){
 		cleExt += cle.toLowerCase();
 	}
-	console.log("b", a);
+	//console.log("b", a);
 	let cleIndex =0;
 	for (let i = 0 ; i < tab.length; i++ ){
-		console.log((cleExt[cleIndex].charCodeAt(0) - a), 
+		/*console.log((cleExt[cleIndex].charCodeAt(0) - a), 
 		(tab[i].toLowerCase().charCodeAt(0) - a )%26, 
 		(a + ((cleExt[cleIndex].charCodeAt(0) - a) + (tab[i].toLowerCase().charCodeAt(0) - a ))%26), 
-		String.fromCharCode( a + ((cleExt[cleIndex].charCodeAt(0) - a) + (tab[i].toLowerCase().charCodeAt(0) - a ))%26));
+		String.fromCharCode( a + ((cleExt[cleIndex].charCodeAt(0) - a) + (tab[i].toLowerCase().charCodeAt(0) - a ))%26));*/
 		if(tab[i].toLowerCase().charCodeAt(0)>= a && tab[i].toLowerCase().charCodeAt(0)<= z){
-			tab[i] = String.fromCharCode(a + ((cleExt[cleIndex].charCodeAt(0) - a) + (tab[i].toLowerCase().charCodeAt(0) - a ))%26);
+			tab[i] = String.fromCharCode(a + ((cleExt[cleIndex].charCodeAt(0) - a) + (tab[i].toLowerCase().charCodeAt(0) - a )+26)%26);
 			cleIndex++;
 		}else if(tab[i].toLowerCase().charCodeAt(0)>= aCap && tab[i].toLowerCase().charCodeAt(0)<= zCap){
-			tab[i] = String.fromCharCode( aCap + (((cleExt[cleIndex].charCodeAt(0) - aCap) + (tab[i].toLowerCase().charCodeAt(0) - aCap ) +26)%26));
+			tab[i] = String.fromCharCode( aCap + (((cleExt[cleIndex].charCodeAt(0) - a) + (tab[i].toLowerCase().charCodeAt(0) - aCap ) +26)%26));
 			cleIndex++;
 		}
 	}
 	return tab.join('');
 }
 
-var object_test = { animal : {type: {name:"chien"}}}
+/* var object_test = { animal : {type: {name:"chien"}}}
 var test = 'The quick brown fox jumps over the lazy dog';
-console.log(vig("j'adore ecouter la radio toute la journee","MUSIQUE"));
+console.log(vig("j'adore ecouter la radio toute la journee","MUSIQUE")); */
 //console.log(object_test, prop_access(object_test, "animal.type.name"));
